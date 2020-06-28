@@ -1,0 +1,44 @@
+1. Mengatur User Variable
+Catatan : Syarat Versi Build Tools Minimal Harus 28.0.0 ke atas.
+
+Variable ANDROID_SDK_ROOT :
+ANDROID_SDK_ROOT = C:\Program Files\Android\android-sdk
+
+Variable ANT_HOME :
+ANT_HOME = D:\Android\apache-ant-1.9.15
+
+Variable JAVA_HOME :
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_251
+
+Variable Path :
+PATH =
+		C:\Users\ADMIN\AppData\Roaming\npm;
+		C:\Program Files\Java\jdk1.8.0_251\bin;D:\Android\apache-ant-1.9.15\bin;
+		C:\Program Files\Android\android-sdk\platform-tools;
+		C:\Program Files\Android\android-sdk\tools;
+		D:\Android\gradle\gradle-6.5\bin;
+		C:\Program Files\Android\android-sdk\build-tools\28.0.0
+
+=============================== TAHAP 1 SELESAI ==================================
+
+
+2. Mengatur System Variable 
+
+Variable Path 
+Path = 
+		C:\Program Files\Common Files\Oracle\Java\javapath;
+		%SystemRoot%\system32;
+		%SystemRoot%;
+		%SystemRoot%\System32\Wbem;
+		%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;
+		C:\Program Files\nodejs\;
+		C:\Program Files\Git\cmd;
+		D:\Android\gradle\gradle-6.5\bin;
+		zipalign;
+
+Catatan : Apabila ada masalah bertuliskan unable to start daemon silahkan tambahkan variable _JAVA_OPTIONS
+
+_JAVA_OPTIONS = -Xmx512M
+
+
+=============================== TAHAP 2 SELESAI ==================================

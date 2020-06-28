@@ -1,0 +1,2 @@
+1. Setup Admob Plugin Pro
+ $ cordova plugin add cordova-plugin-admobpro --save --variable ADMOB_APP_ID="ca-app-3940256099942544~3347511713"

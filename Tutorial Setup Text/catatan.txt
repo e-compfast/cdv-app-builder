@@ -1,0 +1,6 @@
+Syarat Agar berjalan dengan lancar :
+=> SDK Menggunakan Versi min 28.0.0 keatas dan Wajib Accept Agreement
+=> Install File SDK yang diperlukan sesuai kebutuhan 
+	1. build tools versi 28.0.0
+	2. Android API 28
+	

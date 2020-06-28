@@ -1,0 +1,55 @@
+## Persiapan Rilis Aplikasi
+
+==== Membuat Aplikasi Demo ====
+Ketikan Perintah dibawah ini untuk membuat aplikasi demo
+ $ cordova build android 
+
+Hasilnya bisa dilihat di folder 
+=> D:\firstApps\platforms\android\app\build\outputs\apk\debug
+
+
+
+
+
+==== Membuat Aplikasi Rilis ====
+Ketikan Perintah dibawah ini untuk membuat aplikasi rilis untuk upload ke playstore
+ $ cordova build android --release
+
+Hasilnya bisa dilihat di folder 
+=> D:\firstApps\platforms\android\app\build\outputs\apk\release
+
+
+
+
+
+
+==== Persiapan Sign Aplikasi ====
+
+1. Perintah Membuat Keystore
+Masukan perintah di bawah ini didalam folder direktori hasil output aplikasi contoh
+=> D:\firstApps\platforms\android\app\build\outputs\apk\release
+
+ $ keytool -genkey -v -keystore namakeystore.keystore -alias namaAplikasi -keyalg RSA -keysize 2048 -validity 10000
+
+
+
+
+
+
+2. Proses Initialisasi Keystore
+
+ $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore namaKeystore.keystore app-release-unsigned.apk namaAplikasi
+
+
+
+
+3. Sign Keystore Ke Aplikasi
+ $ zipalign -v 4 app-release-unsigned.apk chess-release1.0.0.apk
+
+
+
+LANGKAH TERAKHIR SILAHKAN UPLOAD APLIKASI BERNAMA aplikasi-rilis.apk di folder 
+D:\firstApps\platforms\android\app\build\outputs\apk\release
+
+SELESAI ! HAPPY CODING
+BY: ALAM SANTIKO WIBOWO
