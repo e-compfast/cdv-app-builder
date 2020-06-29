@@ -1,6 +1,8 @@
 ## Script Cordova App Builder
 Membuat script cordova app builder menggunakan Command Line Interface CMD or Terminal
 
+![Script Cordova Builder Image](/img/app-script.png)
+
 TUTORIAL USAGE :
 
 1. Jalan perintah membuat project cordova 
