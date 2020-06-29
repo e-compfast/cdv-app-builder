@@ -112,7 +112,7 @@ IF %program% == b cordova plugin add cordova-plugin-admobpro --save --variable A
 IF %program% == c cordova plugin add cordova-plugin-app-name --variable APP_NAME="Master Chess Indonesia"
 IF %program% == d cordova build android
 IF %program% == e cordova build android --release
-IF %program% == f cd platforms\android\app\build\outputs\apk\release && -keyalg RSA -keysize 2048 -validity 10000 && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore namakeystore.keystore app-release-unsigned.apk namaAplikasi && zipalign -v 4 app-release-unsigned.apk jelly-release1.0.0.apk
+IF %program% == f cd platforms\android\app\build\outputs\apk\release && -keyalg RSA -keysize 2048 -validity 10000 && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore namakeystore.keystore app-release-unsigned.apk namaAplikasi && zipalign -v 4 app-release-unsigned.apk app-release1.0.0.apk
 IF %program% == g cordova build android
 
 IF %program% == 1 cordova platform add android
