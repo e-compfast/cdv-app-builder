@@ -4,24 +4,29 @@
 ECHO.
 ECHO.	===========================================================
 ECHO  	 TERIMAKASIH! TELAH MEMBELI SOURCE CODE DI UNITSELLERADS01
+ECHO	 			DIBUAT OLEH : ALAM SANTIKO WIBOWO
 ECHO.	===========================================================
 
 ECHO.
 ECHO.
 
 ECHO.	===========================================================
-ECHO  	 Daftar Pilihan Program :
+ECHO  	 	Jalankan program dibawah ini secara berturut-turut:
 ECHO.	===========================================================
 ECHO.
-rem ECHO  	[a] Membuat Project Aplikasi
-ECHO  	[b] Menambahkan Admob Plugin
-ECHO  	[c] Menambahkan App Name Plugin
+ECHO  	[a] Membuat Project Aplikasi
+ECHO  	[b] Setting Plugin ID Iklan Admob
+ECHO  	[c] Setting Plugin Nama Aplikasi
+ECHO  	[d] Menambahkan Platform Android
 ECHO.
-ECHO  	[d] Membuat Testing Aplikasi [ Debugging ]
-ECHO  	[e] Membuat Aplikasi Production [ Rilis ]
-ECHO  	[f] Membuat Aplikasi Siap Upload Google Play
+ECHO  	[e] Membuat Testing Aplikasi [ Debugging ]
+ECHO  	[f] Membuat Aplikasi Production [ Rilis ]
+ECHO  	[g] Membuat Aplikasi Siap Upload Google Play
 ECHO.
-ECHO  	[g] Update aplikasi 
+ECHO  	[h] Update Test Aplikasi
+ECHO  	[i] Update Rilis Aplikasi
+
+
 ECHO.
 ECHO.	===========================================================
 
@@ -40,24 +45,70 @@ ECHO.	===========================================================
 
 ECHO.
 ECHO.
-		SET /p "program= + Masukan pilihan program/platform kamu : "
-ECHO.
+
+:appbuilder
+
+SET "program="
+SET /p program= + Masukan pilihan program/platform kamu :
 ECHO.
 
-rem IF %program% == a cordova create masterchess com.masterchess.app masterChess
-IF %program% == b cordova plugin add cordova-plugin-admobpro --save --variable ADMOB_APP_ID="ca-app-pub-3821963146527465~9690679929"
-IF %program% == c cordova plugin add cordova-plugin-app-name --variable APP_NAME="Master Chess Indonesia"
-IF %program% == d cordova build android
-IF %program% == e cordova build android --release
-IF %program% == f cd platforms\android\app\build\outputs\apk\release
-IF %program% == g cordova build android
+rem IF "%program%" equ "a" goto projectApp
+IF "%program%" equ "b" goto appID
+IF "%program%" equ "c" goto appName
+IF "%program%" equ "d" goto addPlatform
+IF "%program%" equ "e" goto buildtest
+IF "%program%" equ "f" goto buildrilis
+IF "%program%" equ "g" goto persiapanupload
 
-IF %program% == 1 cordova platform add android
-IF %program% == 2 cordova platform add ios
-IF %program% == 3 cordova platform add browser
+IF "%program%" equ "h" goto updapptest
+IF "%program%" equ "i" goto updapprilis
 
-:skip
-ECHO + Program berhenti! Jalankan ulang? (y/n)
+IF "%program%" == 1 cordova platform add android
+IF "%program%" == 2 cordova platform add ios
+IF "%program%" == 3 cordova platform add browser
+
 ECHO.
+ECHO + Pilihan Yang Anda Masukan Salah. Silahkan Ulangi Kembali.
 ECHO.
+PAUSE
+GOTO appbuilder
+
+rem :projectApp
+rem cordova create masterchess com.masterchess.app masterchessApp
+rem move signapk.bat masterchess
+rem move appbuilder.bat masterchess && cd masterchess && appbuilder
+rem GOTO appbuilder
+
+:appID
+cordova plugin add cordova-plugin-admobpro --save --variable ADMOB_APP_ID="ca-app-pub-3821963146527465~9690679929"
+GOTO appbuilder
+
+:appName
+cordova plugin add cordova-plugin-app-name --variable APP_NAME="Master Chess Indonesia"
+GOTO appbuilder
+
+:addPlatform
+cordova platform add android
+GOTO appbuilder
+
+:buildtest
+cordova build android
+GOTO appbuilder
+
+:buildrilis
+cordova build android --release
+GOTO appbuilder
+
+:persiapanupload
+move signapk.bat platforms\android\app\build\outputs\apk\release && cd platforms\android\app\build\outputs\apk\release && signapk
+GOTO appbuilder
+
+:updapptest
+cordova build android
+GOTO appbuilder
+
+:updapprilis
+cordova build android --release
+GOTO appbuilder
+
  
